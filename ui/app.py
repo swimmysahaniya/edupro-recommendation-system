@@ -2,6 +2,14 @@ import streamlit as st
 import pandas as pd
 import matplotlib.pyplot as plt
 
+import os
+
+BASE_DIR = os.path.dirname(__file__)
+
+user_features = pd.read_csv(os.path.join(BASE_DIR, "user_features.csv"))
+top_courses = pd.read_csv(os.path.join(BASE_DIR, "top_courses.csv"))
+courses = pd.read_csv(os.path.join(BASE_DIR, "courses.csv"))
+
 # -----------------------------
 # PAGE CONFIG
 # -----------------------------
