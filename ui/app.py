@@ -6,9 +6,16 @@ import os
 
 BASE_DIR = os.path.dirname(__file__)
 
-user_features = pd.read_csv(os.path.join(BASE_DIR, "user_features.csv"))
-top_courses = pd.read_csv(os.path.join(BASE_DIR, "top_courses.csv"))
-courses = pd.read_csv(os.path.join(BASE_DIR, "courses.csv"))
+
+@st.cache_data
+def load_data():
+    user_features = pd.read_csv(os.path.join(BASE_DIR, "user_features.csv"))
+    top_courses = pd.read_csv(os.path.join(BASE_DIR, "top_courses.csv"))
+    courses = pd.read_csv(os.path.join(BASE_DIR, "courses.csv"))
+    return user_features, top_courses, courses
+
+
+user_features, top_courses, courses = load_data()
 
 # -----------------------------
 # PAGE CONFIG
@@ -26,16 +33,6 @@ st.set_page_config(
 #top_courses = pd.read_csv("top_courses.csv")
 #courses = pd.read_csv("courses.csv")
 
-
-@st.cache_data
-def load_data():
-    user_features = pd.read_csv("user_features.csv")
-    top_courses = pd.read_csv("top_courses.csv")
-    courses = pd.read_csv("courses.csv")
-    return user_features, top_courses, courses
-
-
-user_features, top_courses, courses = load_data()
 
 # -----------------------------
 # TITLE
