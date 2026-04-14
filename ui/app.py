@@ -150,7 +150,6 @@ for _, row in recs.iterrows():
 if recs.empty:
     st.warning("No recommendations available for this user.")
 
-
 # -----------------------------
 # Download Button
 # -----------------------------
