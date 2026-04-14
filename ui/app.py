@@ -26,13 +26,27 @@ st.set_page_config(
     layout="wide"
 )
 
+st.markdown("""
+<style>
+.big-title {
+    font-size: 40px;
+    font-weight: bold;
+}
+.card {
+    padding: 20px;
+    border-radius: 15px;
+    background-color: #111827;
+    box-shadow: 0px 4px 10px rgba(0,0,0,0.4);
+}
+</style>
+""", unsafe_allow_html=True)
+
 # -----------------------------
 # LOAD DATA
 # -----------------------------
 #user_features = pd.read_csv("user_features.csv")
 #top_courses = pd.read_csv("top_courses.csv")
 #courses = pd.read_csv("courses.csv")
-
 
 # -----------------------------
 # TITLE
@@ -55,7 +69,7 @@ user_id = st.sidebar.selectbox(
 # -----------------------------
 # GET USER DATA
 # -----------------------------
-with st.spinner("Generating recommendations..."):
+with st.spinner("🤖 AI is analyzing your learning behavior..."):
     user_data = user_features[user_features['UserID'] == user_id]
 
 if user_data.empty:
@@ -63,6 +77,15 @@ if user_data.empty:
     st.stop()
 
 cluster = user_data['Cluster'].values[0]
+
+if cluster == 0:
+    st.success("🟢 Beginner Explorers - Trying different domains")
+elif cluster == 1:
+    st.info("🔵 Focused Learners - Prefer specific category")
+elif cluster == 2:
+    st.warning("🟡 High Spenders - Invest heavily in learning")
+else:
+    st.error("🔴 Advanced Users - Deep learners")
 
 # -----------------------------
 # TOP SECTION (USER INFO)
@@ -119,6 +142,8 @@ for _, row in recs.iterrows():
     - Category: **{row['CourseCategory']}**
     - Level: **{row['CourseLevel']}**
     - ⭐ Rating: **{row['CourseRating']}**
+
+    💡 Recommended because it matches your **cluster behavior & interests**
     """)
     st.markdown("---")
 
@@ -138,6 +163,7 @@ fig.patch.set_facecolor('none')      # remove white background
 ax.set_facecolor('none')
 
 category_counts.plot(kind='bar', ax=ax)
+ax.grid(True, linestyle='--', alpha=0.3)
 
 ax.tick_params(colors='white')       # text color
 ax.set_title("Course Category Distribution", color='white')
@@ -145,6 +171,16 @@ ax.set_xlabel("Category", color='white')
 ax.set_ylabel("Count", color='white')
 
 st.pyplot(fig)
+
+
+# -----------------------------
+# Download Button
+# -----------------------------
+st.download_button(
+    "📥 Download Recommendations",
+    recs.to_csv(index=False),
+    file_name="recommendations.csv"
+)
 
 # -----------------------------
 # FOOTER
