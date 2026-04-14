@@ -150,6 +150,16 @@ for _, row in recs.iterrows():
 if recs.empty:
     st.warning("No recommendations available for this user.")
 
+
+# -----------------------------
+# Download Button
+# -----------------------------
+st.download_button(
+    "📥 Download Recommendations",
+    recs.to_csv(index=False),
+    file_name="recommendations.csv"
+)
+
 # -----------------------------
 # CHART
 # -----------------------------
@@ -171,16 +181,6 @@ ax.set_xlabel("Category", color='white')
 ax.set_ylabel("Count", color='white')
 
 st.pyplot(fig)
-
-
-# -----------------------------
-# Download Button
-# -----------------------------
-st.download_button(
-    "📥 Download Recommendations",
-    recs.to_csv(index=False),
-    file_name="recommendations.csv"
-)
 
 # -----------------------------
 # FOOTER
