@@ -159,6 +159,7 @@ st.download_button(
     recs.to_csv(index=False),
     file_name="recommendations.csv"
 )
+st.markdown("---")
 
 # -----------------------------
 # CHART
