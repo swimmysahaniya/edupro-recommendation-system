@@ -174,7 +174,11 @@ for _, row in recs.iterrows():
         tag = "🌍 Explore New Area"
 
     # ✅ Match Score (Confidence)
-    confidence = round((row['CourseRating'] / 5) * 100)
+    #confidence = round((row['CourseRating'] / 5) * 100)
+    confidence = round(
+        (0.6 * (row['CourseRating'] / 5) +
+         0.4 * (1 if row['CourseCategory'] == user['CourseCategory'] else 0.5)) * 100
+    )
 
     st.markdown(f"""
     ### 📘 {row['CourseName']}
