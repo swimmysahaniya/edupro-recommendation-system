@@ -12,10 +12,11 @@ def load_data():
     user_features = pd.read_csv(os.path.join(BASE_DIR, "user_features.csv"))
     top_courses = pd.read_csv(os.path.join(BASE_DIR, "top_courses.csv"))
     courses = pd.read_csv(os.path.join(BASE_DIR, "courses.csv"))
-    return user_features, top_courses, courses
+    user_courses = pd.read_csv(os.path.join(BASE_DIR, "user_courses.csv"))
+    return user_features, top_courses, courses, user_courses
 
 
-user_features, top_courses, courses = load_data()
+user_features, top_courses, courses, user_courses = load_data()
 
 # -----------------------------
 # PAGE CONFIG
@@ -123,13 +124,23 @@ with col2:
 with col3:
     st.metric("Learning Depth", round(float(user['LearningDepth']), 2))
 
+
+# -----------------------------
+# enrolled courses
+# -----------------------------
+user_course_ids = user_courses[user_courses['UserID'] == user_id]['CourseID']
+
 # -----------------------------
 # RECOMMENDATION
 # -----------------------------
 st.markdown("## 🎯 Recommended Courses")
 
 # Filter cluster courses
-recs = top_courses[top_courses['Cluster'] == cluster].head(5)
+#recs = top_courses[top_courses['Cluster'] == cluster].head(5)
+recs = top_courses[
+    (top_courses['Cluster'] == cluster) &
+    (~top_courses['CourseID'].isin(user_course_ids))
+].head(5)
 
 # Merge with course details
 recs = recs.merge(courses, on='CourseID')

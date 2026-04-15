@@ -78,6 +78,10 @@ It simulates a real-world EdTech platform where learners receive **smart, data-d
 
 ---
 
+## 🎥 Project Feedback Video
+
+[Watch Project Explanation](https://your-video-link-here)
+
 ## 🖥️ Run Locally
 
 ```bash
