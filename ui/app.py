@@ -140,10 +140,12 @@ if enrolled_courses.empty:
 else:
     for _, row in enrolled_courses.iterrows():
         st.markdown(f"""
-        ### 📘 {row['CourseName']}
-        - Category: **{row['CourseCategory']}**
-        - Level: **{row['CourseLevel']}**
-        """)
+        <div class="card">
+        <h4>📘 {row['CourseName']}</h4>
+        <p>Category: {row['CourseCategory']}</p>
+        <p>Level: {row['CourseLevel']}</p>
+        </div>
+        """, unsafe_allow_html=True)
         st.markdown("---")
 
 # -----------------------------
