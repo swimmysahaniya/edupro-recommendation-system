@@ -171,6 +171,13 @@ for _, row in recs.iterrows():
     - Category: **{row['CourseCategory']}**
     - Level: **{row['CourseLevel']}**
     - ⭐ Rating: **{row['CourseRating']}**
+    
+    if row['CourseCategory'] == user['CourseCategory']:
+        tag = "🎯 Best Match"
+    else:
+        tag = "🌍 Explore"
+    
+    st.markdown(f"**{tag}**")
 
     💡 Recommended because it matches your **cluster behavior & interests**
     """)
@@ -208,6 +215,8 @@ ax.tick_params(colors='white')       # text color
 ax.set_title("Course Category Distribution", color='white')
 ax.set_xlabel("Category", color='white')
 ax.set_ylabel("Count", color='white')
+ax.spines['top'].set_visible(False)
+ax.spines['right'].set_visible(False)
 
 st.pyplot(fig)
 
