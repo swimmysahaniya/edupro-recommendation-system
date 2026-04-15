@@ -124,11 +124,27 @@ with col2:
 with col3:
     st.metric("Learning Depth", round(float(user['LearningDepth']), 2))
 
+# -----------------------------
+# USER LEARNING HISTORY
+# -----------------------------
+st.markdown("## 📚 Your Learning History")
 
-# -----------------------------
-# enrolled courses
-# -----------------------------
+# Get user's enrolled courses
 user_course_ids = user_courses[user_courses['UserID'] == user_id]['CourseID']
+
+# Get full course details
+enrolled_courses = courses[courses['CourseID'].isin(user_course_ids)]
+
+if enrolled_courses.empty:
+    st.warning("No enrolled courses found.")
+else:
+    for _, row in enrolled_courses.iterrows():
+        st.markdown(f"""
+        ### 📘 {row['CourseName']}
+        - Category: **{row['CourseCategory']}**
+        - Level: **{row['CourseLevel']}**
+        """)
+        st.markdown("---")
 
 # -----------------------------
 # RECOMMENDATION
