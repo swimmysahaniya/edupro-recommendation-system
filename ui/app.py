@@ -166,18 +166,25 @@ recs = recs.merge(courses, on='CourseID')
 recs = recs.sort_values(by="CourseRating", ascending=False)
 
 for _, row in recs.iterrows():
+
+    # 🎯 Smart Tag Logic
+    if row['CourseCategory'] == user['CourseCategory']:
+        tag = "🎯 Perfect Match"
+    else:
+        tag = "🌍 Explore New Area"
+
+    # ✅ Match Score (Confidence)
+    confidence = round((row['CourseRating'] / 5) * 100)
+
     st.markdown(f"""
     ### 📘 {row['CourseName']}
     - Category: **{row['CourseCategory']}**
     - Level: **{row['CourseLevel']}**
     - ⭐ Rating: **{row['CourseRating']}**
     
-    if row['CourseCategory'] == user['CourseCategory']:
-        tag = "🎯 Best Match"
-    else:
-        tag = "🌍 Explore"
+    **{tag}**
     
-    st.markdown(f"**{tag}**")
+    ✅ Match Score: **{confidence}%**
 
     💡 Recommended because it matches your **cluster behavior & interests**
     """)
