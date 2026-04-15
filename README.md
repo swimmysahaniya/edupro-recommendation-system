@@ -37,6 +37,8 @@ EduPro solves this by:
 - Course completion rates
 - Learning experience
 
+---
+
 ## 🎯 Key Features
 
 ✅ User Segmentation using **KMeans Clustering**  
@@ -101,6 +103,8 @@ Each recommendation includes a **Match Score (%)** based on:
 - Course rating
 - User interest alignment
 
+---
+
 ## 🏗️ System Architecture
 
 User Data → Feature Engineering → Clustering → Recommendation Engine → Streamlit UI
@@ -111,11 +115,15 @@ User Data → Feature Engineering → Clustering → Recommendation Engine → S
 4. Top Courses per Cluster
 5. Real-time Recommendation in UI
 
+---
+
 ## 📈 Key Insights
 
 - Users with high spending tend to prefer advanced courses
 - Beginner users explore multiple categories
 - Cluster-based recommendations improve relevance significantly
+
+---
 
 ## 🔮 Future Improvements
 
@@ -124,6 +132,8 @@ User Data → Feature Engineering → Clustering → Recommendation Engine → S
 - 📊 Real-time user behavior tracking
 - 🌐 Deploy as SaaS product
 - 📱 Mobile-friendly UI
+
+---
 
 ## 📊 Tech Stack
 
@@ -148,6 +158,8 @@ User Data → Feature Engineering → Clustering → Recommendation Engine → S
 ## 🎥 Project Feedback Video
 
 [Watch Project Explanation](https://your-video-link-here)
+
+---
 
 ## 🖥️ Run Locally
 
