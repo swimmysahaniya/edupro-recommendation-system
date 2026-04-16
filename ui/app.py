@@ -235,4 +235,4 @@ st.pyplot(fig)
 # FOOTER
 # -----------------------------
 st.markdown("---")
-st.markdown("🚀 Built by Swimmy Sahaniya | EduPro ML System")
+st.markdown("🚀 Built by Swimmy Sahaniya | EduPro Machine Learning System")
