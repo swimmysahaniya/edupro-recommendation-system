@@ -3,11 +3,11 @@
 > 🚀 End-to-End Machine Learning Project | Recommendation System | Deployed Web App
 
 <p align="center">
-  <img src="assets/demo.png" width="850"/>
+  🚀 AI-powered student segmentation & personalized course recommendations
 </p>
 
 <p align="center">
-  🚀 AI-powered student segmentation & personalized course recommendations
+  <img src="assets/demo.png" width="850"/>
 </p>
 
 ---
