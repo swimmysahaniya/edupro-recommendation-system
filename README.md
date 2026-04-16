@@ -161,19 +161,24 @@ User Data → Feature Engineering → Clustering → Recommendation Engine → S
 
 ## 📁 Project Structure
 
+```bash
 edupro-recommendation-system/
 │
-├── model/                # ML training notebooks & scripts
-├── ui/                   # Streamlit app
+├── model/                     # 🧠 ML training notebooks & scripts
+│
+├── ui/                        # 🎨 Streamlit app
 │   ├── app.py
 │   ├── user_features.csv
 │   ├── top_courses.csv
 │   ├── courses.csv
 │   └── user_courses.csv
 │
-├── assets/               # Images & screenshots
+├── assets/                    # 🖼️ Images & screenshots
+│   └── demo.png
+│
 ├── requirements.txt
 └── README.md
+```
 
 ---
 
