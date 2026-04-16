@@ -1,5 +1,7 @@
 # 🎓 EduPro Personalized Course Recommendation System
 
+> 🚀 End-to-End Machine Learning Project | Recommendation System | Deployed Web App
+
 <p align="center">
   <img src="assets/demo.png" width="850"/>
 </p>
@@ -12,6 +14,16 @@
 
 ## 🌐 Live Demo
 👉 https://swimmysahaniya-edupro-recommendation-system-uiapp-aqupyc.streamlit.app/
+
+---
+
+## 🌟 Highlights
+
+- 🚀 Deployed ML-powered web app (Streamlit Cloud)
+- 🧠 Built end-to-end recommendation system
+- 📊 Implemented clustering-based personalization
+- 🎯 Real-time user-specific recommendations
+- 💡 Designed intuitive and interactive UI
 
 ---
 
@@ -144,6 +156,39 @@ User Data → Feature Engineering → Clustering → Recommendation Engine → S
 | Machine Learning| Scikit-learn |
 | Visualization   | Matplotlib |
 | UI Framework    | Streamlit |
+
+---
+
+## 📁 Project Structure
+
+edupro-recommendation-system/
+│
+├── model/                # ML training notebooks & scripts
+├── ui/                   # Streamlit app
+│   ├── app.py
+│   ├── user_features.csv
+│   ├── top_courses.csv
+│   ├── courses.csv
+│   └── user_courses.csv
+│
+├── assets/               # Images & screenshots
+├── requirements.txt
+└── README.md
+
+---
+
+## 📊 Dataset
+
+The dataset includes:
+- 3000 Users
+- 60 Courses
+- 60 Teachers
+- 10,000 Transactions
+
+It simulates a real-world EdTech platform with:
+- User demographics
+- Course metadata
+- Transaction history
 
 ---
 
