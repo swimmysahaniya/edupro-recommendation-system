@@ -207,7 +207,7 @@ It simulates a real-world EdTech platform with:
 
 ## 🎥 Project Feedback Video
 
-[Watch Project Explanation](https://your-video-link-here)
+[Watch Project Explanation](https://github.com/swimmysahaniya/edupro-recommendation-system/blob/main/assets/2026-04-22%2011-51-02.mov)
 
 ---
 
